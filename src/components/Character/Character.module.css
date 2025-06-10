@@ -1,37 +1,32 @@
-.character {
-	--pixel-size: 3;
-	width: calc(32px * var(--pixel-size));
-	height: calc(32px * var(--pixel-size));
-	overflow: hidden;
+.characterContainer {
 	position: absolute;
-	z-index: 10;
+}
+
+.spriteSheet {
+	width: 128px; /* Largeur d'une frame */
+	height: 128px;
+	overflow: hidden;
+	position: relative;
 }
 
 .characterSprite {
-	animation: moveSpritesheet 0.6s steps(4) infinite;
-	width: calc(128px * var(--pixel-size));
+	width: 1536px; /* Largeur totale du sprite sheet (12 frames × 128px), le total est de 1536x128px */
+	height: 128px;
+	image-rendering: pixelated;
 	position: absolute;
-	image-rendering: pixelated;
+	left: 0;
+	top: 0;
 }
 
-.pixelart {
-	image-rendering: pixelated;
+.walking .characterSprite {
+	animation: walkAnimation 1s steps(12) infinite;
 }
 
-.faceRight {
-	top: calc(-32px * var(--pixel-size));
-}
-
-.faceLeft {
-	top: calc(-96px * var(--pixel-size));
-	transform: scaleX(-1);
-}
-
-@keyframes moveSpritesheet {
-	from {
-		transform: translate3d(0px, 0, 0);
+@keyframes walkAnimation {
+	0% {
+		transform: translateX(0);
 	}
-	to {
-		transform: translate3d(-100%, 0, 0);
+	100% {
+		transform: translateX(-100%);
 	}
 }

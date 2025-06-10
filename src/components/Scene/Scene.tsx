@@ -1,17 +1,9 @@
-import { useEffect, useRef } from "react";
-import Character from "../Character/Character";
 import styles from "./Scene.module.css";
+import Character from "../Character/Character";
 
 export default function Scene() {
-	const canvasRef = useRef<HTMLDivElement>(null);
-
-	// Effets pour la scène (fumée, néons, etc.)
-	useEffect(() => {
-		// Ici vous pourriez ajouter des animations ou effets
-	}, []);
-
 	return (
-		<div ref={canvasRef} className={styles.sceneContainer}>
+		<div className={styles.sceneContainer}>
 			{/* Voiture en feu à gauche */}
 			<div className={styles.car} />
 
@@ -20,12 +12,12 @@ export default function Scene() {
 				<span className={styles.neon}>D</span>
 				<span className={styles.neon}>I</span>
 				<span className={`${styles.neon} ${styles.flickering}`}>N</span>
-				<span className={styles.neon}>E</span>
-				<span className={`${styles.neon} ${styles.flickering}`}>R</span>
+				<span className={`${styles.neon} ${styles.flickering}`}>E</span>
+				<span className={styles.neon}>R</span>
 			</div>
 
-			{/* Personnage */}
-			<Character />
+			{/* Personnage positionné en bas à gauche */}
+			<Character initialPosition={{ x: 50, y: 50 }} />
 		</div>
 	);
 }
