@@ -1,0 +1,32 @@
+.characterContainer {
+	position: absolute;
+}
+
+.spriteSheet {
+	width: 128px; /* Largeur d'une frame */
+	height: 128px;
+	overflow: hidden;
+	position: relative;
+}
+
+.characterSprite {
+	width: 1536px; /* Largeur totale du sprite sheet (12 frames × 128px), le total est de 1536x128px */
+	height: 128px;
+	image-rendering: pixelated;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.walking .characterSprite {
+	animation: walkAnimation 1s steps(12) infinite;
+}
+
+@keyframes walkAnimation {
+	0% {
+		transform: translateX(0);
+	}
+	100% {
+		transform: translateX(-100%);
+	}
+}
