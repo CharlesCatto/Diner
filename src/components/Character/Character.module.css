@@ -1,0 +1,37 @@
+.character {
+	--pixel-size: 3;
+	width: calc(32px * var(--pixel-size));
+	height: calc(32px * var(--pixel-size));
+	overflow: hidden;
+	position: absolute;
+	z-index: 10;
+}
+
+.characterSprite {
+	animation: moveSpritesheet 0.6s steps(4) infinite;
+	width: calc(128px * var(--pixel-size));
+	position: absolute;
+	image-rendering: pixelated;
+}
+
+.pixelart {
+	image-rendering: pixelated;
+}
+
+.faceRight {
+	top: calc(-32px * var(--pixel-size));
+}
+
+.faceLeft {
+	top: calc(-96px * var(--pixel-size));
+	transform: scaleX(-1);
+}
+
+@keyframes moveSpritesheet {
+	from {
+		transform: translate3d(0px, 0, 0);
+	}
+	to {
+		transform: translate3d(-100%, 0, 0);
+	}
+}
